@@ -1,6 +1,8 @@
 import AppInfo from "../app-info/app-info";
 import SearchPanel from "../search-panel/search-panel";
 import AppFilter from "../app-filter/app-filter";
+import MovieList from '../movie-list/movie-list'
+import MovieAddForm from "../movie-add-form/movie-add-form";
 import "./app.css";
 
 const App = () => {
@@ -12,6 +14,8 @@ const App = () => {
           <SearchPanel />
           <AppFilter />
         </div>
+          <MovieList />
+          <MovieAddForm />
       </div>
     </div>
   );
