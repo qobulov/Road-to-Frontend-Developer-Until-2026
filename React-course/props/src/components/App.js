@@ -1,10 +1,10 @@
-const User = (props) => {
+const User = ({ name, surname, link}) => {
   return (
     <div>
       <h1>
-        Mening ismim {props.name} Familyam {props.surname}
+        Mening ismim {name} Familyam {surname}
       </h1>
-      <a href={props.link}>Link</a>
+      <a href={link}>Link</a>
     </div>
   );
 };
