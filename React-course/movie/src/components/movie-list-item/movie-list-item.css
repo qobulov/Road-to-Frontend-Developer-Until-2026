@@ -35,3 +35,8 @@
   gap: 0.5rem;
   margin-left: 1rem; 
 }
+
+.list-group-item.colors .movie-list-item-label,
+.list-group-item.colors .controls .movie-list-item-input {
+  color: #0095ff;
+}

@@ -1,8 +1,8 @@
 import "./movie-list-item.css";
 
-const MovieListItem = ({ name, views }) => {
+const MovieListItem = ({ name, views, color }) => {
   return (
-    <li className="list-group-item">
+    <li className={`list-group-item d-flex ${color && 'colors'}`}>
       <span className="movie-list-item-label">{name}</span>
       <input
         type="number"

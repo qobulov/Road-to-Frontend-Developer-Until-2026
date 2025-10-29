@@ -1,14 +1,15 @@
 import MovieListItem from "../movie-list-item/movie-list-item";
 import './movie-list.css';
 
-const MovieList = () => {
+const MovieList = ({data}) => {
   return (
     <ul className="movie-list">
-      <MovieListItem name= "Transformers" views={989}/>
-      <MovieListItem name= "Avatar" views={1234} />
-      <MovieListItem name= "Inception" views={5678} />
+      {data.map((movie) => (
+        <MovieListItem key={movie.id} {...movie} />
+      ))}
     </ul>
   );
 };
+
 
 export default MovieList;
