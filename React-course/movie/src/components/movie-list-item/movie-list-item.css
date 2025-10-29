@@ -33,10 +33,29 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: 1rem; 
+  margin-left: 1rem;
 }
 
-.list-group-item.colors .movie-list-item-label,
-.list-group-item.colors .controls .movie-list-item-input {
+.list-group-item.favourites .movie-list-item-label,
+.list-group-item.favourites .movie-list-item-input {
   color: #0095ff;
+}
+.list-group-item:hover {
+  background-color: rgba(153, 255, 218, 0.5);
+}
+.list-group-item.like .fa-star {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.list-group-item .fa-star {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+  color: #ffd700;
+  transition: 0.3s all;
+  transform: translateX(30px);
+  opacity: 0;
 }
