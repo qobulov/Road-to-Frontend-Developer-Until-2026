@@ -1,13 +1,13 @@
-import './movie-list-item.css';
+import "./movie-list-item.css";
 
-const MovieListItem = () => {
+const MovieListItem = ({ name, views }) => {
   return (
     <li className="list-group-item">
-      <span className="movie-list-item-label">Film nomi</span>
+      <span className="movie-list-item-label">{name}</span>
       <input
         type="number"
         className="movie-list-item-input"
-        defaultValue={989}
+        defaultValue={views}
       />
       <div className="controls">
         <button type="button" className="btn-cookie btn-sm">
