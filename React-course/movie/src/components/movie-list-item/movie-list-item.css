@@ -4,11 +4,15 @@
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 1px solid rgba(61, 90, 128, 0.12);
-  transition: background-color 0.15s ease;
+  transition: all 0.2s ease;
   gap: 1rem;
   flex-wrap: nowrap;
   box-sizing: border-box;
   min-height: 56px;
+}
+
+.list-group-item:hover {
+  background-color: rgba(0, 149, 255, 0.05);
 }
 
 .list-group-item .movie-list-item-label {
@@ -58,4 +62,8 @@
   transition: 0.3s all;
   transform: translateX(30px);
   opacity: 0;
+}
+
+.list-group-item.favourite .btn-star {
+  color: #aeaeae;
 }
