@@ -81,3 +81,40 @@ p {
   justify-content: center;
   padding: 20px;
 }
+
+/* Utility classes (lightweight replacements for missing Bootstrap utilities) */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center,
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+}
+
+.btn-reset {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
