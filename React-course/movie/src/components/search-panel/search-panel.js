@@ -1,14 +1,15 @@
 import "./search-panel.css";
-import React from "react";
+import { useContext, useState } from "react";
+import { Context } from "../../context/context";
 
+const SearchPanel = () => {
+  const [term, setTerm] = useState("");
+  const { dispatch } = useContext(Context);
 
-
-const SearchPanel = (props) => {
-  const [term, setTerm] = React.useState("");
   const updateTerm = (e) => {
     const term = e.target.value.toLowerCase();
     setTerm(term);
-    props.updateTerm(term);
+    dispatch({ type: "SET_TERM", payload: term });
   };
 
   return (

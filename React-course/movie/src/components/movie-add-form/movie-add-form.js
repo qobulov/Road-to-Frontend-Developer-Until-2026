@@ -1,7 +1,11 @@
 import "./movie-add-form.css";
 import React from "react";
+import { useContext } from "react";
+import { Context } from "../../context/context";
 
-const MovieAddForm = ({ addForm }) => {
+const MovieAddForm = () => {
+  const {dispatch } = useContext(Context);
+
   const [state, setState] = React.useState({ name: "", views: "" });
   const changeHandlerInput = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -9,7 +13,7 @@ const MovieAddForm = ({ addForm }) => {
   const addFormHandler = (e) => {
     e.preventDefault();
     if (state.name === "" || state.views === "") return;
-    addForm({ name: state.name, views: state.views });
+    dispatch({ type: "ADD_FORM", payload: { name: state.name, views: state.views } });
     setState({ name: "", views: "" });
   };
 

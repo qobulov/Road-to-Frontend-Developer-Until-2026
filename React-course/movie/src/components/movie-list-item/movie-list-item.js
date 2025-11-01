@@ -1,7 +1,20 @@
+import { useContext } from "react";
 import "./movie-list-item.css";
+import { Context } from "../../context/context";
 
 const MovieListItem = (props) => {
-  const { name, views, favourite, like, onDelete, onToggleProp } = props;
+  const { name, views, favourite, like, id } = props;
+
+  const { dispatch } = useContext(Context);
+
+  const onDelete = () => {
+    dispatch({ type: "DELETE_MOVIE", payload: id });
+  };
+
+  const onToggleProp = (e) => {
+    const prop = e.currentTarget.getAttribute("data-toggle");
+    dispatch({ type: "TOGGLE_PROP", payload: { id, prop } });
+  };
   return (
     <li
       className={`list-group-item d-flex ${favourite && "favourites"} ${
@@ -25,7 +38,7 @@ const MovieListItem = (props) => {
         <button
           type="button"
           className="btn-cookie btn-sm"
-          onClick={ onToggleProp}
+          onClick={onToggleProp}
           data-toggle="favourite"
         >
           <i className="fas fa-cookie" />

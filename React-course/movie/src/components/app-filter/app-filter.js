@@ -1,6 +1,15 @@
 import "./app-filter.css";
+import React from "react";
+import { useContext } from "react";
+import { Context } from "../../context/context";
 
-export const AppFilter = ({ updateFilter }) => {
+export const AppFilter = () => {
+  const { dispatch } = useContext(Context);
+
+  const updateFilter = (name) => {
+    dispatch({ type: "ON_FILTER", payload: name });
+  };
+
   return (
     <div className="btn-group">
       {btnsArr.map((btn) => (
