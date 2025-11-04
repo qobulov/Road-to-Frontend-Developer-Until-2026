@@ -14,7 +14,7 @@ import {
 } from "@mui/icons-material";
 
 export const colors = {
-  primary: "#FF2625",
+  primary: "brown",
   secondary: "#fff",
 };
 export const logo =

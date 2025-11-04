@@ -5,3 +5,7 @@ export { default as Navbar } from "./navbar/navbar";
 export { default as VideoDetail } from "./video-detail/video-detail";
 export { default as Category } from "./category/category";
 export { default as SearchBar } from "./search/search";
+export { default as Videos } from "./videos/videos";
+export { default as VideoCard } from "./video-card/video-card";
+export { default as ChannelCard } from "./channel-card/channel-card";
+export { default as Search} from "./search/search";

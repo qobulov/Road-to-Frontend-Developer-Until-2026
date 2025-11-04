@@ -5,7 +5,6 @@ import {Main,Channel,VideoDetail,SearchBar, Navbar} from "../";
 const  App = () => {
   return (
     <Box>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/channel/:id" element={<Channel />} />
