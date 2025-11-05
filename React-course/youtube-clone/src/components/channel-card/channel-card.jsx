@@ -1,43 +1,61 @@
-import { Box, CardMedia, CardContent, Typography } from "@mui/material";
+import { Box, CardMedia, CardContent, Typography, Avatar } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
-const ChannelCard = ({ ChannelDetail }) => {
+import { Link } from "react-router-dom";
+
+const ChannelCard = ({ channelDetail }) => {
+  console.log(channelDetail?.statistics?.subscriberCount)
   return (
     <Box
       sx={{
-        display: { xs: "none", sm: "block" },
         boxShadow: "none",
         borderRadius: "20px",
-        position: "relative",
+        display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: { sm: "356px", md: "320px" },
+        width: { xs: "100%", sm: "358px", md: "320px" },
         height: "326px",
         margin: "auto",
+        marginTop: { xs: 0, md: 2 }
       }}
     >
-      <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", color: "#fff" }}>
-        <CardMedia
-          component="img"
-          alt="Channel"
-          image={ChannelDetail?.snippet?.thumbnails?.default?.url}
-          alt={ChannelDetail?.snippet?.title}
-          sx={{
-            borderRadius: "50%",
-            height: "180px",
-            width: "180px",
-            mb: 2,
-            border: "1px solid #e3e3e3",
+      <Link to={`/channel/${channelDetail?.id?.channelId || channelDetail?.id}`}>
+        <CardContent 
+          sx={{ 
+            display: "flex", 
+            flexDirection: "column", 
+            justifyContent: "center", 
+            textAlign: "center",
+            alignItems: "center"
           }}
-        />
-        <Typography variant="h6">
-          {ChannelDetail?.snippet?.title}
-          <CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px" }} />
-        </Typography>
-        {ChannelDetail?.statistics?.subscriberCount && (
-          <Typography>{parseInt(ChannelDetail?.statistics?.subscriberCount).toLocaleString()} Subscribers</Typography>
-        )}
-      </CardContent>
+        >
+          <Avatar
+            alt={channelDetail?.snippet?.title}
+            src={channelDetail?.snippet?.thumbnails?.high?.url}
+            sx={{
+              width: { xs: 150, md: 180 },
+              height: { xs: 150, md: 180 },
+              mb: 2,
+              border: "1px solid #e3e3e3",
+              alignItems: "center"
+            }}
+          />
+
+          {/* Channel Name */}
+          <Typography variant="h6" color="#000">
+            {channelDetail?.snippet?.title}
+            <CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px" }} />
+          </Typography>
+
+          {/* Subscriber Count */}
+          {channelDetail?.statistics?.subscriberCount && (
+            <Typography sx={{ fontSize: "15px", fontWeight: 500, color: "gray" }}>
+              {parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString('en-US')} Subscribers
+            </Typography>
+          )}
+        </CardContent>
+      </Link>
     </Box>
   );
 };
+
 export default ChannelCard;
