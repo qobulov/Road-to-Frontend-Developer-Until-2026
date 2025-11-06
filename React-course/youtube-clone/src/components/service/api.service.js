@@ -8,7 +8,7 @@ const options = {
   }
 };
 
-export const ApiService = {
+const ApiService = {
   fetching: async (url) => {
     try {
       const response = await fetch(`${BASE_URL}/${url}`, options);
@@ -22,3 +22,5 @@ export const ApiService = {
     }
   },
 };
+
+export default ApiService

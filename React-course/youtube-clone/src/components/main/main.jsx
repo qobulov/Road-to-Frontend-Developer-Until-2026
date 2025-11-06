@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Stack, Box, Container, Typography } from "@mui/material";
-import { Category, Videos, Navbar, ChannelCard } from "../";
-import { ApiService } from '../service/api.service';
+import { Category, Videos, Navbar, ChannelCard, ApiService } from "../";
 
 const Main = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");

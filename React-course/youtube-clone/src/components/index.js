@@ -10,3 +10,4 @@ export { default as VideoCard } from "./video-card/video-card";
 export { default as ChannelCard } from "./channel-card/channel-card";
 export { default as Search} from "./search/search";
 export { default as Loader } from "./loader/loader";
+export { default as ApiService} from "./service/api.service";

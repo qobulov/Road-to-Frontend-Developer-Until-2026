@@ -1,11 +1,10 @@
 import { Avatar, Box, Chip, Stack, Typography } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ApiService } from '../../service/api.service'
 import ReactPlayer from 'react-player'
 import { CheckCircle, FavoriteOutlined, MarkChatRead, Tag, Visibility } from '@mui/icons-material'
 import renderHTML from 'react-render-html'
-import { Loader, Videos } from '../'
+import { Loader, Videos, ApiService } from '../'
 
 const VideoDetail = () => {
 	const [videoDetail, setVideoDetail] = useState(null)
