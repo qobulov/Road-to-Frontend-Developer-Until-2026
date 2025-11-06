@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import { CheckCircle, FavoriteOutlined, MarkChatRead, Tag, Visibility } from '@mui/icons-material'
-import renderHTML from 'react-render-html'
+import parse from 'html-react-parser'
 import { Loader, Videos, ApiService } from '../'
 
 const VideoDetail = () => {
@@ -52,7 +52,7 @@ const VideoDetail = () => {
 						{videoDetail.snippet.title}
 					</Typography>
 					<Typography variant='subtitle2' p={2} sx={{ opacity: '.7' }}>
-						{renderHTML(videoDetail.snippet.description)}
+						{parse(videoDetail.snippet.description)}
 					</Typography>
 					<Stack direction='row' gap='20px' alignItems='center' py={1} px={2}>
 						<Stack sx={{ opacity: 0.7 }} direction='row' alignItems='center' gap='3px'>
