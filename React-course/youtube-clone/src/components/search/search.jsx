@@ -1,48 +1,36 @@
-import { useState } from "react";
-import { Paper, IconButton } from "@mui/material";
-import { Search as SearchIcon } from "@mui/icons-material";
+import { Box, Container, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { ApiService } from '../'
+import Videos from '../videos/videos'
 
-const Search = ({ onSearch }) => {
-  const [value, setValue] = useState("");
+const Search = () => {
+	const [videos, setVideos] = useState([])
+	const { id } = useParams()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (value.trim()) {
-      onSearch(value);
-    }
-  };
+	useEffect(() => {
+		const getData = async () => {
+			try {
+				const data = await ApiService.fetching(`search?part=snippet&q=${id}`)
+				setVideos(data.items)
+			} catch (error) {
+				console.log(error)
+			}
+		}
 
-  return (
-    <Paper
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{
-        border: "1px solid #e3e3e3",
-        pl: 2,
-        boxShadow: "none",
-        mr: { sm: 5 },
-        display: "flex",
-        alignItems: "center",
-        width: { xs: "100%", sm: "400px" }
-      }}
-    >
-      <input
-        type="text"
-        placeholder="Search..."
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        style={{
-          border: "none",
-          outline: "none",
-          width: "100%",
-          padding: "10px"
-        }}
-      />
-      <IconButton type="submit" sx={{ p: "10px", color: "red" }}>
-        <SearchIcon />
-      </IconButton>
-    </Paper>
-  );
-};
+		getData()
+	}, [id])
 
-export default Search;
+	return (
+		<Box p={2} sx={{ height: '90vh' }}>
+			<Container maxWidth={'90%'}>
+				<Typography variant={'h4'} fontWeight={'bold'} mb={2}>
+					Search results fro <span style={{ color:'red' }}>{id}</span> videos
+				</Typography>
+				<Videos videos={videos} />
+			</Container>
+		</Box>
+	)
+}
+
+export default Search

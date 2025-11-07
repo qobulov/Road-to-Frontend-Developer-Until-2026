@@ -7,7 +7,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import {BrowserRouter} from 'react-router-dom';
 
-import {App,Main} from './components';
+import {App} from './components';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

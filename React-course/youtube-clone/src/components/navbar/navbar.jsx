@@ -1,7 +1,8 @@
-import { Stack, Box } from "@mui/material";
-import { Link } from "react-router-dom"; 
+import { Stack, Box, IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 import { logo } from "../constants";
-import { Search } from "../"; 
+import { SearchBar } from "../";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = ({ onSearch }) => {
   return (
@@ -10,21 +11,56 @@ const Navbar = ({ onSearch }) => {
       justifyContent="space-between"
       alignItems="center"
       p={2}
-      sx={{ 
-        position: "sticky", 
-        top: 0, 
-        background: "#fff",
+      sx={{
+        position: "sticky",
+        top: 0,
+        backgroundColor: "#fff",
         zIndex: 999,
-        boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
+        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+        flexWrap: "wrap", // elementlar pastga tushishi uchun
       }}
     >
-      <Link to="/" style={{ display: "flex", alignItems: "center" }}>
-        <img src={logo} alt="logo" height={50} />
-      </Link>
+      {/* Logo va menu */}
+      <Stack direction="row" alignItems="center" spacing={1}>
+        {/* Hamburger icon faqat kichik ekranlar uchun */}
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <IconButton>
+            <MenuIcon />
+          </IconButton>
+        </Box>
 
-      <Search onSearch={onSearch} />
+        <Link to="/" style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={logo}
+            alt="logo"
+            height={40}
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </Link>
+      </Stack>
 
-      <Box sx={{ width: { xs: 0, sm: "100px" } }} />
+      {/* SearchBar */}
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          justifyContent: "center",
+          mt: { xs: 1.5, md: 0 }, 
+          width: { xs: "100%", sm: "auto" },
+        }}
+      >
+        <SearchBar onSearch={onSearch} />
+      </Box>
+
+      {/* Right side placeholder */}
+      <Box
+        sx={{
+          width: { xs: 0, sm: "100px" },
+          display: { xs: "none", sm: "block" },
+        }}
+      />
     </Stack>
   );
 };
